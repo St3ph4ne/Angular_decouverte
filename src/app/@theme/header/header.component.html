@@ -1,0 +1,26 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a href="" class="sidebar-toggle" (click)="toggleSidebar()">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a href="" class="logo">CRM</a>
+  </div>
+</div>
+
+<div class="header-container">
+
+  <nb-actions size="small">
+    <nb-action icon="award-outline">coucou</nb-action>
+    <nb-action icon="award-outline">coucou</nb-action>
+  </nb-actions>
+</div>
+
+<div class="header-container">
+
+  <nb-actions size="small">
+    <nb-action class="user-action">
+      <nb-user name="Loïc" [nbContextMenu]="profileMenu" onlyPicture="true">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+</div>
