@@ -25,3 +25,4 @@ export abstract class Common {
   abstract addData(data: CommonData): void;
 
 }
+

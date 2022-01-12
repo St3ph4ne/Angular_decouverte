@@ -1,3 +1,4 @@
+import { EventsMock } from './../../../@application/calendar/mock/events.mock';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SandboxComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private service: EventsMock
+  ) { }
 
   ngOnInit(): void {
   }
