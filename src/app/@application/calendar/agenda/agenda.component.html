@@ -15,7 +15,11 @@
       </thead>
       <tbody>
         <tr style="height: 10vh;max-height: 10vh;" *ngFor="let line of monthCells">
-          <td style="width: 20%;" *ngFor="let cell of line" [ngClass]="{'now': cell.today,'other-month':cell.title === ''}">{{cell.title}}</td>
+          <td style="width: 20%;" *ngFor="let cell of line" [ngClass]="{'now': cell.today,'other-month':cell.title === ''}">
+
+            <span class="text-muted">{{cell.title}}</span>
+          <div class="event w-100" [ngStyle]="{'background-color': cell.content.color}" *ngIf="cell.content !== ''" ><p>{{cell.content.action}} | {{cell.content.module}} - {{cell.content.trainer.firstname}}</p></div>
+          </td>
         </tr>
       </tbody>
     </table>

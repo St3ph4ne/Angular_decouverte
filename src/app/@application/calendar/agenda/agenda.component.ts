@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 const DAYS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi']
-const MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const MONTHS = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 
 
 @Component({
@@ -12,9 +12,13 @@ const MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Aoû
 })
 export class AgendaComponent implements OnInit {
 
+  @Input('source') dataSources: any[];
+
+  value = '<i>ttttt</i>';
+
   agendaHead = DAYS.map((day, index) => {
     return {
-      id: index+1,
+      id: index + 1,
       title: day
     }
   })
@@ -24,22 +28,22 @@ export class AgendaComponent implements OnInit {
 
   // Objet calendrier pour l'affichage et kes calculs
   agenda = {
-    today : new Date(),
-    month : (new Date()).getMonth(),
-    view : {
-      date : (new Date()).getDate(),
-      day : (new Date()).getDay(),
-      month : MONTHS.find((m,i) => i === (new Date()).getMonth()),
-      year : (new Date()).getFullYear()
+    today: new Date(),
+    month: (new Date()).getMonth(),
+    view: {
+      date: (new Date()).getDate(),
+      day: (new Date()).getDay(),
+      month: MONTHS.find((m, i) => i === (new Date()).getMonth()),
+      year: (new Date()).getFullYear()
     }
   }
 
   constructor() {
-    this.generate(new Date(this.agenda.view.year,this.agenda.today.getMonth(),1));
+    this.generate(new Date(this.agenda.view.year, this.agenda.month, 1));
   }
 
   ngOnInit(): void {
-
+    this.loadDatas();
   }
 
   /**
@@ -47,19 +51,19 @@ export class AgendaComponent implements OnInit {
    * Le calendrier est figé sur les jours d'une semaine travaillée (hors weekends)
    * @param date
    */
-  private generate(date: Date){
+  private generate(date: Date) {
     let line = [];
     // préparation de la génération hors weekend
-    if(date.getDay() === 0) date.setDate(date.getDate()+ 1)
-    if(date.getDay() === 6) date.setDate(date.getDate()+ 2)
+    if (date.getDay() === 0) date.setDate(date.getDate() + 1)
+    if (date.getDay() === 6) date.setDate(date.getDate() + 2)
     // cases du mois precedent
     line = [...this.getDaysPreviousMonth(date)];
 
-    while(date.getMonth() === this.agenda.month){
+    while (date.getMonth() === this.agenda.month) {
 
       const cell = {
-        title : date.getDate(),
-        content : "event",
+        title: date.getDate(),
+        content: "",
         today: (
           this.agenda.today.getDate() === date.getDate() &&
           this.agenda.today.getMonth() === date.getMonth() &&
@@ -68,7 +72,7 @@ export class AgendaComponent implements OnInit {
       line.push(cell);
       date.setDate(date.getDate() + 1);
       // prochaine generation le lundi d'après
-      if(date.getDay() === 6){
+      if (date.getDay() === 6) {
         date.setDate(date.getDate() + 2);
         this.monthCells.push(line);
         line = [];
@@ -76,7 +80,7 @@ export class AgendaComponent implements OnInit {
     }
 
     // On comble la dernière ligne avec les jours du mois d'après
-    if(line.length > 0){
+    if (line.length > 0) {
       line.push(...this.getDaysNextMonth(5 - line.length))
       this.monthCells.push(line);
     }
@@ -88,11 +92,12 @@ export class AgendaComponent implements OnInit {
    * @param date
    * @returns
    */
-  private getDaysPreviousMonth(date: Date): any[]{
+  private getDaysPreviousMonth(date: Date): any[] {
     let line = [];
     for (let i = 1; i < date.getDay(); i++) {
       line.push({
-        title : ""
+        title: "",
+        content: ""
       })
     }
     return line;
@@ -103,13 +108,14 @@ export class AgendaComponent implements OnInit {
    * @param count
    * @returns
    */
-  private getDaysNextMonth(count: number){
+  private getDaysNextMonth(count: number) {
     let line = [];
-    while(count > 0){
+    while (count > 0) {
       line.push({
-        title: ""
+        title: "",
+        content: ""
       });
-      count --;
+      count--;
     }
     return line;
   }
@@ -118,13 +124,27 @@ export class AgendaComponent implements OnInit {
    * Changement de mois sur click de bouton
    * @param direction
    */
-  public changeMonth(direction: number){
+  public changeMonth(direction: number) {
     this.monthCells = [];
-    let next = new Date(this.agenda.view.year,this.agenda.month + direction,1);
+    let next = new Date(this.agenda.view.year, this.agenda.month + direction, 1);
     this.agenda.month = next.getMonth();
-    this.agenda.view.month = MONTHS.find((m,i) => i === next.getMonth());
+    this.agenda.view.month = MONTHS.find((m, i) => i === next.getMonth());
     this.agenda.view.year = next.getFullYear();
     this.generate(next);
+    this.loadDatas();
+  }
+
+  private loadDatas(): void {
+    this.dataSources.forEach(evt => {
+      let cell = undefined;
+      this.monthCells.forEach((line: []) => {
+        const c = line.find((cell: any) => (cell.title === evt.datetime.getDate() && evt.datetime.getMonth() === this.agenda.month));
+        if(c !== undefined) {
+          cell = c;
+          cell.content = evt;
+        };
+      })
+    })
   }
 
 }

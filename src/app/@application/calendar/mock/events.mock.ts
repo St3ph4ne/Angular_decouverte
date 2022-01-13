@@ -18,7 +18,7 @@ const actions: Action[] = [
     title: "ERN DWWM",
     hours: 1000,
     trainer: trainers[1],
-    start: new Date(2022, 1, 21),
+    start: new Date(2022, 0, 4),
     modules: [
       {
         id: 1,
@@ -37,6 +37,12 @@ const actions: Action[] = [
         title: 'JS',
         hours: 21,
         events: []
+      },
+      {
+        id: 4,
+        title: 'PHP',
+        hours: 105,
+        events: []
       }
     ]
   },
@@ -45,7 +51,7 @@ const actions: Action[] = [
     title: "REGION DWWM",
     hours: 1000,
     trainer: trainers[0],
-    start: new Date(2022, 4, 9),
+    start: new Date(2022, 1, 2),
     modules: [
       {
         id: 1,
@@ -82,8 +88,7 @@ export class EventsMock extends Events {
 
     // permet de visualiser les evenements générés
     this.generateEvents();
-    this.getActions()
-      .subscribe(actions => {
+    this.getActions().subscribe(actions => {
         actions.forEach(action => {
           action.modules.forEach(module => {
             console.log({
@@ -93,8 +98,6 @@ export class EventsMock extends Events {
             })
           })
         })
-
-
       })
   }
 
