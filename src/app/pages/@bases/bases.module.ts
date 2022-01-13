@@ -1,3 +1,5 @@
+import { ApplicationModule } from './../../@application/application.module';
+import { CalendarModule } from './../../@application/calendar/calendar.module';
 import { BusinessModule } from './../../@application/business/business.module';
 import { BusinessWidgetComponent } from './../../@application/business/business-widget/business-widget.component';
 import { SandboxComponent } from './sandbox/sandbox.component';
@@ -18,7 +20,8 @@ import { SandboxAltComponent } from './sandbox-alt/sandbox-alt.component';
     CommonModule,
     BasesRoutingModule,
     NbCardModule,
-    BusinessModule
+    ApplicationModule
+
   ]
 })
 export class BasesModule { }
