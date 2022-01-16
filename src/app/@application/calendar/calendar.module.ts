@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AgendaComponent } from './agenda/agenda.component';
+import { SchedulerComponent } from './scheduler/scheduler.component';
 
 
 @NgModule({
   declarations: [
-    AgendaComponent
+    AgendaComponent,
+    SchedulerComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { AgendaComponent } from './agenda/agenda.component';
     NbButtonModule,
   ],
   exports: [
-    AgendaComponent
+    AgendaComponent,
+    SchedulerComponent
   ]
 })
 export class CalendarModule { }
