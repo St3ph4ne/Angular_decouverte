@@ -13,6 +13,7 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { ApplicationModule } from './@application/application.module';
+import { TestModule } from './test/test.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -28,6 +29,7 @@ import { ApplicationModule } from './@application/application.module';
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
     ThemeModule.forRoot(),
+    TestModule
   ],
   providers: [],
   bootstrap: [AppComponent]
