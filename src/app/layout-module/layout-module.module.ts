@@ -11,8 +11,8 @@ import { ContentComponent } from './content/content.component';
   declarations: [
     NavBarComponent,
     SideBarComponent,
-    FooterComponent,
     ContentComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule

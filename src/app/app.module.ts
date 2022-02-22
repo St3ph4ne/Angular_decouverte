@@ -15,10 +15,12 @@ import {
 } from '@nebular/theme';
 import { ApplicationModule } from './@application/application.module';
 import { NavBarComponent } from './layout-module/nav-bar/nav-bar.component';
+import { FooterComponent } from './layout-module/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavBarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
-import { NbLayoutModule, NbMenuModule } from '@nebular/theme';
+import { NbLayoutModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { NbLayoutModule, NbMenuModule } from '@nebular/theme';
     NbMenuModule,
     PagesRoutingModule,
     NbLayoutModule,
-
+    NbSidebarModule
   ]
 })
 export class PagesModule { }
