@@ -7,15 +7,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
+  NbLayoutModule,
   NbMenuModule,
   NbSidebarModule,
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
 import { ApplicationModule } from './@application/application.module';
+import { NavBarComponent } from './layout-module/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { ApplicationModule } from './@application/application.module';
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
     ThemeModule.forRoot(),
+    NbLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
