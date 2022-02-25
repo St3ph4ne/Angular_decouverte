@@ -10,17 +10,16 @@ import {
   NbLayoutModule,
   NbMenuModule,
   NbSidebarModule,
+  NbThemeModule,
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
 import { ApplicationModule } from './@application/application.module';
-import { NavBarComponent } from './layout-module/nav-bar/nav-bar.component';
-import { FooterComponent } from './layout-module/footer/footer.component';
+import { LayoutModule } from './layout/layout.module';
+import { MessagingModule } from './messaging/messaging.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +31,10 @@ import { FooterComponent } from './layout-module/footer/footer.component';
     NbMenuModule.forRoot(),
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
-    ThemeModule.forRoot(),
-    NbLayoutModule
+    NbThemeModule.forRoot(),
+    MessagingModule,
+    NbLayoutModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

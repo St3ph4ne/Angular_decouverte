@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WritingMessageComponent } from './writing-message.component';
+import { BottomComponent } from './bottom.component';
 
-describe('WritingMessageComponent', () => {
-  let component: WritingMessageComponent;
-  let fixture: ComponentFixture<WritingMessageComponent>;
+describe('BottomComponent', () => {
+  let component: BottomComponent;
+  let fixture: ComponentFixture<BottomComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WritingMessageComponent ]
+      declarations: [ BottomComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WritingMessageComponent);
+    fixture = TestBed.createComponent(BottomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

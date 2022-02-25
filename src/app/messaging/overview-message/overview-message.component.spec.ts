@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MessagingServiceComponent } from './messaging-service.component';
+import { OverviewMessageComponent } from './overview-message.component';
 
-describe('MessagingServiceComponent', () => {
-  let component: MessagingServiceComponent;
-  let fixture: ComponentFixture<MessagingServiceComponent>;
+describe('OverviewMessageComponent', () => {
+  let component: OverviewMessageComponent;
+  let fixture: ComponentFixture<OverviewMessageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MessagingServiceComponent ]
+      declarations: [ OverviewMessageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MessagingServiceComponent);
+    fixture = TestBed.createComponent(OverviewMessageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
