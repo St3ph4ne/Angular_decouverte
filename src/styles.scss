@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+.footer{
+  background-color: whitesmoke;
+  box-shadow: -2px -4px 20px rgba($color: #000000, $alpha: 0.4);
+}
+
+.sidebar{
+  position: relative;
+  border-radius: 1px solid black;
+  background-color: whitesmoke;
+}
+
+.sidebar::after{
+  position:absolute;
+  z-index: -2;
+  content:"";
+  width: 20%;
+  height: 110%;
+  right: 0;
+  top: 2%;
+  box-shadow: 10px 2px 20px rgba($color: #000000, $alpha: 0.4);
+
+}
+
+ul.menu{
+  position: relative;
+  width: 100%;
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.menu > li{
+  border-bottom: 1px solid black;
+  padding: 1.2em 0;
+  text-align: right;
+
+}
+
+// ul.menu > li > a{
+
+
+// }
