@@ -13,7 +13,6 @@ import { NotificationComponent } from "./messaging/notification/notification.com
       {path: 'notif', component : NotificationComponent},
       {path: 'inbox', component : InboxComponent},
       {path: 'newmsg', component : NewMsgComponent},
-
     ])
   ],
   exports:[

@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { DataMessagesService } from '../services/data-messages.service';
+
+export interface Message {
+  title : string;
+  content : string;
+  sent : Date;
+  isRead : boolean;
+}
 
 @Component({
   selector: 'app-inbox',
@@ -7,10 +15,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InboxComponent implements OnInit {
 
-  constructor() { }
+  messages: Message[] = [];
+
+  constructor(
+    private service: DataMessagesService
+  ) { }
 
   ngOnInit(): void {
+    this.messages = this.service.getMessages()
   }
 
-  toto = "Stéphane";
 }

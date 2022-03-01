@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Message } from '../inbox/inbox.component';
+import { DataMessagesService } from '../services/data-messages.service';
 
 @Component({
   selector: 'app-new-msg',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewMsgComponent implements OnInit {
 
-  constructor() { }
+  m: Message;
+
+  constructor(private service: DataMessagesService) {
+
+  }
 
   ngOnInit(): void {
+    this.m = {
+      content : 'bonjour',
+      title : 'mon super titre',
+      sent : new Date(),
+      isRead : false
+    }
+  }
+
+  createMessage() {
+    this.service.addMessage(this.m)
   }
 
 }

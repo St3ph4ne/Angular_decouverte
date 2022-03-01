@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RoutingModule } from './app.routing.module';
 import { MessagingModule } from './messaging/messaging.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -10,7 +11,8 @@ import { MessagingModule } from './messaging/messaging.module';
   imports: [
     BrowserModule,
     MessagingModule,
-    RoutingModule
+    RoutingModule,
+
 
   ],
   providers: [],

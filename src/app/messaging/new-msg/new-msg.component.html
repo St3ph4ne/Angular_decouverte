@@ -1,18 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <div class="ff">
-        <form>
-        <label for="title" class="form-label">Titre</label>
-        <input type="text" class="form-control" id="title">
-
-        <label for="content" class="form-label">Content</label>
-        <textarea name="content" class="form-control" id="content" cols="20" rows="8"></textarea> <br />
-        <button type="submit" class="btn btn-success btn-lg">Envoyer</button>
-        </form>
+    <div class="col-6 offset-3">
+      <div class="col-12">
+        <input [(ngModel)]="m.title" type="text" name="title" class="form-control">
+      </div>
+      <div class="col-12 mt-4">
+        <textarea [(ngModel)]="m.content" name="content" id="content" class="form-control" cols="20" rows="8"></textarea> <br />
+      </div>
+      <div class="row">
+        <div class="col-10">
+          <button (click)="createMessage()" type="button" class="btn btn-success btn-lg">Envoyer</button>
+        </div>
       </div>
     </div>
-    <div class="col-md-4"></div>
   </div>
 </div>
