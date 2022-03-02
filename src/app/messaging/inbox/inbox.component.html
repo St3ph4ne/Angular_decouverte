@@ -1,9 +1,17 @@
 <div *ngFor="let message of messages">
 
-  <div class="card">
+  <div class="card mb-2">
     <div class="card-body">
-      <h5 class="card-title">{{ message.title }}</h5>
-      <p class="card-text">{{ message.content }}</p>
+      <div class="row">
+        <div class="col-10">
+          <h5 class="card-title">{{ message.title }}</h5>
+          <p class="card-text">{{ message.content }}</p>
+        </div>
+        <div class="col-2">
+          <a href="./updatemsg"><button type="button" class="btn btn-info">update</button></a>
+          <button (click)="deleteMsg()" type="button" class="btn btn-danger">delete</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

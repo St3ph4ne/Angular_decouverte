@@ -5,6 +5,7 @@ import { InboxComponent } from './inbox/inbox.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NewMsgComponent } from './new-msg/new-msg.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateMessageComponent } from './update-message/update-message.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     OverviewMessageComponent,
     InboxComponent,
     NotificationComponent,
-    NewMsgComponent
+    NewMsgComponent,
+    UpdateMessageComponent
   ],
   imports: [
     CommonModule,

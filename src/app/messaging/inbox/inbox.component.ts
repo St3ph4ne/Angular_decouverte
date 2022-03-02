@@ -17,12 +17,16 @@ export class InboxComponent implements OnInit {
 
   messages: Message[] = [];
 
-  constructor(
-    private service: DataMessagesService
-  ) { }
+  constructor(private service: DataMessagesService) {
+
+  }
 
   ngOnInit(): void {
     this.messages = this.service.getMessages()
+  }
+
+  deleteMsg(){
+    this.service.deleteMessage();
   }
 
 }

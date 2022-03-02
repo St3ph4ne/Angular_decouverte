@@ -32,14 +32,34 @@ export class DataMessagesService {
   ) { }
 
   /**
-   *
+   * Récupérer tous les messages
    */
   getMessages(): Message[]{
     return this.messages;
 
   }
 
+  /**
+   * Ajouter un nouveau message
+   * @param m
+   */
   addMessage(m: Message) {
     this.messages.push(m);
+  }
+
+  /**
+   * Supprimer un message
+   * @param m
+   */
+  deleteMessage() {
+    this.messages.pop();
+  }
+
+  /**
+   * Modifier un message
+   * @param m
+   */
+  updateMessage(m: Message) {
+
   }
 }
