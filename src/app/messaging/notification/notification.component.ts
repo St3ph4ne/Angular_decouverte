@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataMessagesService } from '../services/data-messages.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-notification',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationComponent implements OnInit {
 
-  constructor() { }
+  notReadMessages: number;
+
+  constructor(private service: DataMessagesService) {
+  }
 
   ngOnInit(): void {
+    this.service
+      .getSubjectMessages()
+      .pipe(
+        map((msgs, idx) => {
+          return msgs.filter((m) => {
+            return !m.isRead;
+          }).length; // retourne tous les messages non lus
+        })
+      )
+      .subscribe( datas => this.notReadMessages = datas )
   }
 
 }
