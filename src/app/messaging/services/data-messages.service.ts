@@ -4,11 +4,13 @@ import { map } from 'rxjs/operators';
 import { Message } from '../inbox/inbox.component';
 import { HttpClient } from '@angular/common/http';
 
+/**
+ *  exporte la class DataMessagesService pour l'utiliser dans d'autres modules :
+ */
 @Injectable({
   providedIn: 'root'
 })
 
-// exporte la class DataMessagesService pour l'utiliser dans d'autres modules :
 export class DataMessagesService {
 
   constructor(private http: HttpClient){}
@@ -40,11 +42,11 @@ export class DataMessagesService {
 
 
   /**
-   * Récupérer tous les messages
+   * Envoie une requête au server distant, et récupère la réponse:
    */
-  // getMessages(){
-  //   return this.http.get('http://localhost:8828/api');
-  // }
+  getMessages(){
+    return this.http.get('http://localhost:8828/api');
+  }
 
   /**
    * Ajouter un nouveau message

@@ -29,13 +29,13 @@ export class InboxComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.myService
-    //   .getMessages()
-    //   .subscribe((datas)=>{
-    //     this.apiMessages = datas;
-    //   });
+    this.myService
+      .getMessages()
+      .subscribe((datas)=>{
+        this.apiMessages = datas;
+      });
 
-    //   console.log(this.apiMessages)
+      console.log(this.apiMessages)
   }
 
   // Pour supprimer un message :
