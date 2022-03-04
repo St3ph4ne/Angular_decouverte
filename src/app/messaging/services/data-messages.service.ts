@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Message } from '../inbox/inbox.component';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
+// exporte la class DataMessagesService pour l'utiliser dans d'autres modules :
 export class DataMessagesService {
 
+  constructor(private http: HttpClient){}
   //
   private messages: Message[] = [
     {
@@ -34,17 +38,13 @@ export class DataMessagesService {
   //
   private subject = new BehaviorSubject<Message[]>([]);
 
-  constructor() {
-    // L'appel à next met à jour les messages
-    this.subject.next([])
-  }
 
   /**
    * Récupérer tous les messages
    */
-  getMessages(): Message[]{
-    return this.messages;
-  }
+  // getMessages(){
+  //   return this.http.get('http://localhost:8828/api');
+  // }
 
   /**
    * Ajouter un nouveau message
@@ -59,7 +59,7 @@ export class DataMessagesService {
 
   /**
    * Mets les messages dans une observable
-   * @returns
+   * @returns les messages
    */
   getObservableMessages(): Observable<Message[]> {
     return of(this.messages);

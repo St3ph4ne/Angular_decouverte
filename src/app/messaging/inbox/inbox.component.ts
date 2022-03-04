@@ -15,27 +15,30 @@ export interface Message {
   styleUrls: ['./inbox.component.scss']
 })
 
+
 export class InboxComponent implements OnInit {
 
+  // On initialise la variable messages comme un tableau d'objet de type Message :
   messages: Message[] = [];
+  apiMessages: any;
 
+  // on injecte DataMessagesService par défaut dans les InboxComponent :
   constructor(private myService: DataMessagesService) {
 
   }
 
   ngOnInit(): void {
-    // this.messages = this.myService.getMessages();
-    // on remplace par ce qui suit pour utiliser les observables
 
-    // Rappel de syntaxe : () => {} déclare une foncton anonyme
-    this.myService
-      .getObservableMessages()
-      .subscribe((datas)=>{
-        this.messages = datas;
-      });
-      console.log(this.messages);
+    // this.myService
+    //   .getMessages()
+    //   .subscribe((datas)=>{
+    //     this.apiMessages = datas;
+    //   });
+
+    //   console.log(this.apiMessages)
   }
 
+  // Pour supprimer un message :
   deleteMsg(m: Message){
     this.messages.splice(this.messages.indexOf(m),1);  }
 

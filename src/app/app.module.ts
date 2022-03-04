@@ -12,8 +12,6 @@ import { MessagingModule } from './messaging/messaging.module';
     BrowserModule,
     MessagingModule,
     RoutingModule,
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,17 +1,1 @@
-<div *ngFor="let message of messages">
-
-  <div class="card mb-2">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-10">
-          <h5 class="card-title">{{ message.title }}</h5>
-          <p class="card-text">{{ message.content }}</p>
-        </div>
-        <div class="col-2">
-          <a href="./updatemsg"><button type="button" class="btn btn-info myPopover" data-toggle="popover" data-placement="top" title="Edit this message">update</button></a>
-          <button (click)="deleteMsg(this.message)" type="button" class="btn btn-danger myPopover" data-toggle="popover" data-placement="top" title="Delete without confirmation">delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{{ apiMessages }}
