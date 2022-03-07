@@ -44,8 +44,8 @@ export class DataMessagesService {
   /**
    * Envoie une requête au server distant, et récupère la réponse:
    */
-  getMessages(){
-    return this.http.get('http://localhost:8828/api');
+  getMessages(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8828/api');
   }
 
   /**
