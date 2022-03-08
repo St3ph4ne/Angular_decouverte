@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router"
 import { DetailMessageComponent } from "./messaging/detail-message/detail-message.component";
 import { InboxComponent } from "./messaging/inbox/inbox.component";
+import { LoginComponent } from "./messaging/login/login.component";
 import { NewMsgComponent } from "./messaging/new-msg/new-msg.component";
 import { NotificationComponent } from "./messaging/notification/notification.component";
 import { UpdateMessageComponent } from "./messaging/update-message/update-message.component";
@@ -17,6 +18,7 @@ import { UpdateMessageComponent } from "./messaging/update-message/update-messag
       {path: 'newmsg', component : NewMsgComponent},
       {path: 'updatemsg/{{id}}', component : UpdateMessageComponent},
       {path: 'message/:id', component : DetailMessageComponent},
+      {path: 'login', component : LoginComponent},
     ])
   ],
   exports:[

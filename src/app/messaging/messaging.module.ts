@@ -7,6 +7,7 @@ import { NewMsgComponent } from './new-msg/new-msg.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateMessageComponent } from './update-message/update-message.component';
 import { DetailMessageComponent } from './detail-message/detail-message.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -17,7 +18,8 @@ import { DetailMessageComponent } from './detail-message/detail-message.componen
     NotificationComponent,
     NewMsgComponent,
     UpdateMessageComponent,
-    DetailMessageComponent
+    DetailMessageComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
