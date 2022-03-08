@@ -1,5 +1,9 @@
 <ul *ngFor="let message of apiMessages">
-  <li><h1>{{ message.title }}</h1></li>
-  <li>{{ message.content }}</li>
-  <li>{{ message.sent }}</li>
+  <div class="card-body">
+    <li><h5 class="card-title">{{ message.title }}</h5></li>
+    <li><p class="card-text">{{ message.content }}</p></li>
+    <li><p class="card-text">{{ message.sent }}</p></li>
+    <li><a href="/message/{{message.id}}" class="btn btn-info">Detail</a></li>
+  </div>
+
 </ul>

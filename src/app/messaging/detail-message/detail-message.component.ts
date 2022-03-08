@@ -7,6 +7,7 @@ import { DataMessagesService } from '../services/data-messages.service';
   templateUrl: './detail-message.component.html',
   styleUrls: ['./detail-message.component.scss']
 })
+
 export class DetailMessageComponent implements OnInit {
 
   message : any;

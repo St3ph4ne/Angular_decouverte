@@ -78,6 +78,9 @@ export class DataMessagesService {
      );
   }
 
+  deleteMessage() {
+    console.log('message effacé');
+  }
 
   /**
    * Modifier un message
