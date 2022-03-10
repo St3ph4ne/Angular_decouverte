@@ -1,32 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <form>
-        <h3>Please login to your account</h3>
-
-        <div class="form-outline mb-4 mt-5">
-          <input type="email" id="form2Example11" class="form-control"/>
-          <label class="form-label" for="form2Example11">Username</label>
-        </div>
-
-        <div class="form-outline mb-4">
-          <input type="password" id="form2Example22" class="form-control" />
-          <label class="form-label" for="form2Example22">Password</label>
-        </div>
-
-        <div class="text-center pt-1 mb-5 pb-1">
-          <button (click)="log()" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log in</button>
-          <!-- <a class="text-muted" href="#!">Forgot password?</a> -->
-        </div>
-
-        <!-- <div class="d-flex align-items-center justify-content-center pb-4">
-          <p class="mb-0 me-2">Don't have an account?</p>
-          <button type="button" class="btn btn-outline-danger">Create new</button>
-        </div> -->
-
-      </form>
-
-    </div>
+<form [formGroup]="form">
+  <fieldset>
+      <legend>Login</legend>
+      <div class="form-field">
+          <label>Email:</label>
+          <input name="email" formControlName="email">
+      </div>
+      <div class="form-field">
+          <label>Password:</label>
+          <input name="password" formControlName="password"
+                 type="password">
+      </div>
+  </fieldset>
+  <div class="form-buttons">
+      <button class="button button-primary"
+              (click)="login()">Login</button>
   </div>
-</div>
-
+</form>`})

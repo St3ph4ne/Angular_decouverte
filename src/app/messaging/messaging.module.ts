@@ -4,7 +4,7 @@ import { OverviewMessageComponent } from './overview-message/overview-message.co
 import { InboxComponent } from './inbox/inbox.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NewMsgComponent } from './new-msg/new-msg.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateMessageComponent } from './update-message/update-message.component';
 import { DetailMessageComponent } from './detail-message/detail-message.component';
 import { LoginComponent } from './login/login.component';
@@ -23,13 +23,15 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     OverviewMessageComponent,
     InboxComponent,
     NotificationComponent,
-    NewMsgComponent
+    NewMsgComponent,
+    LoginComponent
   ]
 })
 export class MessagingModule { }

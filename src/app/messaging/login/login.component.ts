@@ -1,21 +1,43 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthServiceService } from '../services/auth-service.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  form:FormGroup;
+
+  constructor(private fb:FormBuilder,
+               private authService: AuthServiceService,
+               private router: Router) {
+
+      this.form = this.fb.group({
+          email: ['',Validators.required],
+          password: ['',Validators.required]
+      });
+  }
 
   ngOnInit(): void {
+
   }
 
-  log() {
-    try {
-      localStorage.setItem("key" , "value")
-    }catch(e) {}
-  }
+  login() {
+      const val = this.form.value;
 
+      if (val.email && val.password) {
+          this.authService.login(val.email, val.password)
+              .subscribe(
+                  () => {
+                      console.log("User is logged in");
+                      this.router.navigateByUrl('/');
+                  }
+              );
+      }
+  }
 }
