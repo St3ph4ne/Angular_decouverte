@@ -89,4 +89,12 @@ export class DataMessagesService {
   updateMessage(m: Message) {
 
   }
+
+  // page d'authentification
+  auth(userData: any) {
+    return this.http.post("http://localhost:8828/logins", userData, { responseType: "text" } );
+
+  }
+
 }
+

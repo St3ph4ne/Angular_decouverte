@@ -1,43 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthServiceService } from '../services/auth-service.service';
+import { DataMessagesService } from '../services/data-messages.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-
 export class LoginComponent implements OnInit {
 
-  form:FormGroup;
-
-  constructor(private fb:FormBuilder,
-               private authService: AuthServiceService,
-               private router: Router) {
-
-      this.form = this.fb.group({
-          email: ['',Validators.required],
-          password: ['',Validators.required]
-      });
-  }
+  constructor(private service: DataMessagesService) { }
 
   ngOnInit(): void {
 
   }
 
-  login() {
-      const val = this.form.value;
+  statut: string = "";
 
-      if (val.email && val.password) {
-          this.authService.login(val.email, val.password)
-              .subscribe(
-                  () => {
-                      console.log("User is logged in");
-                      this.router.navigateByUrl('/');
-                  }
-              );
+  //récupère
+  loginForm(Identity) {
+    this.service.auth(Identity)
+    .subscribe(dataUser => {
+      console.log(dataUser);
+      if(dataUser == "email ou mot de passe incorrect") {
+        this.statut = dataUser;
+      } else {
+        this.statut = "Bienvenue";
+        localStorage.setItem("authorization" , dataUser);
       }
+
+     })
   }
 }
